@@ -1,0 +1,492 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MapmyIndia Place Details API",
+    "description": "<h2>Security Type</h2> <p>This APIs follow OAuth2 based security. <b>To know more on how to create your authorization tokens, please click the `Authorize` button below. More details available <a href=https://www.mapmyindia.com/api/advanced-maps/doc/authentication-api.php>here</a></b> </br><li><a href=https://www.mapmyindia.com/api/login>Login/Sing Up</a> for API key and other access.<p></br>",
+    "termsOfService": "https://www.mapmyindia.com/api/terms-&-conditions",
+    "contact": {
+      "name": "MapmyIndia API Support",
+      "url": "https://www.mapmyindia.com/api/#f_cont",
+      "email": "apisupport@mapmyindia.com"
+    },
+    "version": "v2.1.0.0"
+  },
+  "externalDocs": {
+    "description": "Find out more about MapmyIndia APIs",
+    "url": "https://www.mapmyindia.com/api/advanced-maps/doc/interactive-map-api"
+  },
+  "servers": [
+    {
+      "url": "http://explore-uat.mapmyindia.in/api",
+      "description": "UAT"
+    },
+    {
+      "url": "http://exp.mapmyindia.in/api",
+      "description": "PreProd"
+    },
+    {
+      "url": "https://explore.mapmyindia.com/api"
+    }
+  ],
+  "paths": {
+    "/{version}/places/{eloc}/placedetails": {
+      "get": {
+        "tags": [
+          "Place Details"
+        ],
+        "summary": "Details of a place",
+        "description": "This API gives the general details of that particular place id (eLoc) with keyinfo.",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Current version of the API.",
+            "required": true,
+            "example": "v2.0.0.24",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eloc",
+            "in": "path",
+            "description": "6 character unique place identifier",
+            "required": true,
+            "example": "1T182A",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Response": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "totalItems": {
+                "type": "integer",
+                "example": 16
+              },
+              "perPage": {
+                "type": "integer",
+                "example": 10
+              },
+              "totalPages": {
+                "type": "integer",
+                "example": 2
+              },
+              "currentPage": {
+                "type": "string",
+                "example": 1
+              }
+            }
+          },
+          "eloc": {
+            "type": "string",
+            "example": "1T182A"
+          },
+          "updatedOn": {
+            "type": "integer",
+            "example": 1560233495062
+          },
+          "createdOn": {
+            "type": "integer",
+            "example": 1560233495062
+          },
+          "generalDetails": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "HISMON"
+              },
+              "city": {
+                "type": "string",
+                "example": "New Delhi"
+              },
+              "similarPlaces": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "number",
+                "format": "double",
+                "example": 28.612964
+              },
+              "houseNumber": {
+                "type": "string"
+              },
+              "placeId": {
+                "type": "string",
+                "example": "1T182A"
+              },
+              "poi": {
+                "type": "string",
+                "example": "India Gate"
+              },
+              "type": {
+                "type": "string",
+                "example": "POI"
+              },
+              "responseCode": {
+                "type": "integer",
+                "example": 200
+              },
+              "houseName": {
+                "type": "string"
+              },
+              "formattedAddress": {
+                "type": "string",
+                "example": "Rajpath Marg, New Delhi, Delhi, 110001"
+              },
+              "eLat": {
+                "type": "number",
+                "format": "double",
+                "example": 28.613058
+              },
+              "popularName": {
+                "type": "string"
+              },
+              "street": {
+                "type": "string",
+                "example": "India Gate Circle"
+              },
+              "state": {
+                "type": "string",
+                "example": "Delhi"
+              },
+              "village": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "longitude": {
+                "type": "number",
+                "format": "double",
+                "example": 77.2294630000001
+              },
+              "pincode": {
+                "type": "integer",
+                "example": "110001"
+              },
+              "website": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string",
+                "example": "Rajpath Marg, New Delhi, Delhi, 110001"
+              },
+              "subLocality": {
+                "type": "string",
+                "example": ""
+              },
+              "locality": {
+                "type": "string",
+                "example": ""
+              },
+              "telephone": {
+                "type": "string",
+                "example": "+911123365358"
+              },
+              "eLng": {
+                "type": "number",
+                "format": "double",
+                "example": 77.227738
+              },
+              "subSubLocality": {
+                "type": "string",
+                "example": ""
+              },
+              "district": {
+                "type": "string",
+                "example": "New Delhi District"
+              },
+              "floorNo": {
+                "type": "integer",
+                "example": ""
+              },
+              "doorNo": {
+                "type": "integer",
+                "example": ""
+              },
+              "placeName": {
+                "type": "string",
+                "example": "India Gate"
+              },
+              "subDistrict": {
+                "type": "string",
+                "example": "Connaught Place"
+              }
+            }
+          },
+          "richData": {
+            "type": "object",
+            "properties": {
+              "countInfo": {
+                "type": "object",
+                "properties": {
+                  "starCount": {
+                    "type": "object",
+                    "properties": {
+                      "oneStar": {
+                        "type": "integer",
+                        "example": 61
+                      },
+                      "twoStar": {
+                        "type": "integer",
+                        "example": 220
+                      },
+                      "threeStar": {
+                        "type": "integer",
+                        "example": 1796
+                      },
+                      "fourStar": {
+                        "type": "integer",
+                        "example": 3386
+                      },
+                      "fiveStar": {
+                        "type": "integer",
+                        "example": 4354
+                      }
+                    }
+                  },
+                  "checkinCount": {
+                    "type": "integer",
+                    "example": 61
+                  },
+                  "favouriteCount": {
+                    "type": "integer",
+                    "example": 20
+                  },
+                  "reviewCount": {
+                    "type": "integer",
+                    "example": 9817
+                  },
+                  "avgRating": {
+                    "type": "integer",
+                    "example": 4
+                  },
+                  "reportCount": {
+                    "type": "integer",
+                    "example": 19
+                  }
+                }
+              },
+              "description": {
+                "type": "string",
+                "example": "The India Gate, built in 1931 and designed by Sir Edwin Lutyens, was inspired by the Arc de Triomphe. It commemorates India's war dead and houses an eternal flame."
+              },
+              "events": {
+                "type": "string",
+                "example": null
+              },
+              "reports": {
+                "type": "string",
+                "example": null
+              },
+              "origin": {
+                "type": "string",
+                "example": "tripadvisor"
+              },
+              "originLogUrl": {
+                "type": "string",
+                "example": "/logourl/"
+              },
+              "rankingData": {
+                "type": "string",
+                "example": null
+              },
+              "reviews": {
+                "type": "array",
+                "items": {
+                  "properties": {
+                    "lang": {
+                      "type": "string",
+                      "example": "eng"
+                    },
+                    "eventId": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "placeId": {
+                      "type": "string",
+                      "example": "1T182A"
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "rating": {
+                      "type": "integer",
+                      "example": 5
+                    },
+                    "latitude": {
+                      "type": "number",
+                      "example": 28.612964
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "example": 77.229463
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "published"
+                    },
+                    "userName": {
+                      "type": "string",
+                      "example": "cijabe_1565243606"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "Cijabe2"
+                    },
+                    "photo": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "pictures": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "videos": {
+                      "type": "string",
+                      "example": null
+                    },
+                    "createdOn": {
+                      "type": "integer",
+                      "example": 1570630567
+                    },
+                    "updatedOn": {
+                      "type": "integer",
+                      "example": null
+                    },
+                    "liked": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "flagged": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "likeCount": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "flagCount": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "resourceLocation": {
+                      "type": "string",
+                      "example": "/places/review/e66296075641bb6051a3103ad007c431"
+                    },
+                    "origin": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "tripType": {
+                      "type": "string",
+                      "example": "management"
+                    }
+                  }
+                }
+              },
+              "seeAllPhotos": {
+                "type": "object"
+              }
+            }
+          },
+          "keyInfo": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "icon": {
+                        "type": "string",
+                        "example": "ic_timings.png"
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "Timings"
+                      },
+                      "value": {
+                        "type": "string",
+                        "example": "Morning to Night"
+                      }
+                    }
+                  }
+                },
+                "heading": {
+                  "type": "string",
+                  "example": "Opening Hours"
+                },
+                "style": {
+                  "type": "string",
+                  "example": "icon_with_one_lines"
+                }
+              }
+            }
+          },
+          "version": {
+            "type": "string",
+            "example": "211.16"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "mmi_auth": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://outpost.mapmyindia.com/api/security/oauth/token",
+            "scopes": {
+              "Read": "read authorization for API"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
