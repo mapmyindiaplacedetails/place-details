@@ -58,6 +58,17 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Unique key to access this API",
+            "required": true,
+            "example": "Bearer 2134asdfsd-830c-32asdf-86f8-fsadfdsf2",
+            "allowEmptyValue": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -438,34 +449,251 @@
                   "items": {
                     "properties": {
                       "icon": {
-                        "type": "string",
-                        "example": "ic_timings.png"
+                        "type": "string"
                       },
                       "title": {
-                        "type": "string",
-                        "example": "Timings"
+                        "type": "string"
                       },
                       "value": {
-                        "type": "string",
-                        "example": "Morning to Night"
+                        "type": "string"
                       }
                     }
                   }
                 },
                 "heading": {
-                  "type": "string",
-                  "example": "Opening Hours"
+                  "type": "string"
                 },
                 "style": {
-                  "type": "string",
-                  "example": "icon_with_one_lines"
+                  "type": "string"
                 }
               }
-            }
+            },
+            "example": [
+              {
+                "data": [
+                  {
+                    "icon": "ic_timings.png",
+                    "title": "Timings",
+                    "value": "12:00AM-01:00PM"
+                  },
+                  {
+                    "icon": "ic_closed_on.png",
+                    "title": "Closed On",
+                    "value": "Monday"
+                  }
+                ],
+                "heading": "Opening Hours",
+                "style": "icon_with_one_lines"
+              },
+              {
+                "data": [
+                  {
+                    "icon": "ic_entry_fees.png",
+                    "title": "Entry Fee",
+                    "value": "Rs50"
+                  },
+                  {
+                    "icon": "ic_star_rating.png",
+                    "title": "Rating",
+                    "value": "4"
+                  }
+                ],
+                "heading": "Additional Informations",
+                "style": "icon_with_two_lines"
+              },
+              {
+                "data": [
+                  {
+                    "icon": "ic_poi_animities_yes.png",
+                    "title": "Parking",
+                    "value": "Yes"
+                  }
+                ],
+                "heading": "Amenities",
+                "style": "check_point"
+              }
+            ]
           },
           "version": {
             "type": "string",
             "example": "211.16"
+          }
+        }
+      },
+      "keyInfo": {
+        "type": "object",
+        "description": "It is a dynamic object which works like a \"key-value\" pair. You can add any parameter afterwards. Most of the headings & titles we are using are listed below.",
+        "properties": {
+          "Opening Hours": {
+            "type": "object",
+            "properties": {
+              "Timings": {
+                "type": "string",
+                "example": "12:00AM-1:00PM"
+              },
+              "Closed On": {
+                "type": "string",
+                "example": "Sunday"
+              },
+              "......": {
+                "type": "string",
+                "description": "Furthermore"
+              }
+            }
+          },
+          "Additional Information": {
+            "type": "object",
+            "properties": {
+              "Entry Fee": {
+                "type": "string",
+                "example": 100
+              },
+              "Cost for Two": {
+                "type": "string",
+                "example": 2500
+              },
+              "Rating": {
+                "type": "string",
+                "example": 4
+              },
+              "Cuisine": {
+                "type": "string",
+                "example": "Continental"
+              },
+              "Noise Level": {
+                "type": "string",
+                "example": 3
+              },
+              "......": {
+                "type": "string",
+                "description": "Furthermore"
+              }
+            }
+          },
+          "Amenities": {
+            "type": "object",
+            "properties": {
+              "Pure Veg": {
+                "type": "string",
+                "example": "No"
+              },
+              "Bar": {
+                "type": "string",
+                "example": "No"
+              },
+              "Paytm": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Reservations": {
+                "type": "string",
+                "example": "No"
+              },
+              "Take Away": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Good For": {
+                "type": "string",
+                "example": null
+              },
+              "Parking": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Valet Parking": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Child Friendly": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Good for Groups": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Attire": {
+                "type": "string",
+                "example": "Casual"
+              },
+              "Ambience": {
+                "type": "string",
+                "example": null
+              },
+              "Serves Alcohol": {
+                "type": "string",
+                "example": "No"
+              },
+              "Outdoor Seating": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Wi-Fi": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "TV": {
+                "type": "string",
+                "example": "No"
+              },
+              "Catering": {
+                "type": "string",
+                "example": "No"
+              },
+              "Restroom": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Mist Fans": {
+                "type": "string",
+                "example": "No"
+              },
+              "Live Music": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Karaoke": {
+                "type": "string",
+                "example": "No"
+              },
+              "Smoking Area": {
+                "type": "string",
+                "example": "No"
+              },
+              "Dance Floor": {
+                "type": "string",
+                "example": "No"
+              },
+              "Wheelchair Friendly": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Pet Friendly": {
+                "type": "string",
+                "example": "Yes"
+              },
+              "Service": {
+                "type": "string",
+                "example": null
+              },
+              "Brunch": {
+                "type": "string",
+                "example": "No"
+              },
+              "Buffet": {
+                "type": "string",
+                "example": "No"
+              },
+              "Barbecue": {
+                "type": "string",
+                "example": "No"
+              },
+              "......": {
+                "type": "string",
+                "description": "Furthermore"
+              }
+            }
           }
         }
       }
