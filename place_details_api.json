@@ -42,7 +42,7 @@
             "in": "path",
             "description": "Current version of the API.",
             "required": true,
-            "example": "v2.0.0.24",
+            "example": "v2.1.0.0",
             "allowEmptyValue": false,
             "schema": {
               "type": "string"
