@@ -522,7 +522,7 @@
       },
       "keyInfo": {
         "type": "object",
-        "description": "It is a dynamic object which works like a \"key-value\" pair. You can add any parameter afterwards. Most of the headings & titles we are using are listed below.",
+        "description": "It is a dynamic object which works like a \"key-value\" pair. You can add also add a new parameter afterwards. Most of the headings & titles we are using are listed below, there are more likewise",
         "properties": {
           "Opening Hours": {
             "type": "object",
