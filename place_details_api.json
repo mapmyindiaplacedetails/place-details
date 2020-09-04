@@ -58,17 +58,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "description": "Unique key to access this API",
-            "required": true,
-            "example": "Bearer 2134asdfsd-830c-32asdf-86f8-fsadfdsf2",
-            "allowEmptyValue": false,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -100,27 +89,6 @@
       "Response": {
         "type": "object",
         "properties": {
-          "pagination": {
-            "type": "object",
-            "properties": {
-              "totalItems": {
-                "type": "integer",
-                "example": 16
-              },
-              "perPage": {
-                "type": "integer",
-                "example": 10
-              },
-              "totalPages": {
-                "type": "integer",
-                "example": 2
-              },
-              "currentPage": {
-                "type": "string",
-                "example": 1
-              }
-            }
-          },
           "eloc": {
             "type": "string",
             "example": "1T182A"
@@ -710,9 +678,9 @@
           }
         }
       },
-      "api_key": {
+      "Authorization": {
         "type": "apiKey",
-        "name": "api_key",
+        "name": "Authorization",
         "in": "header"
       }
     }
